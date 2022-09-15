@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactBootstrap from 'react-bootstrap';
+import * as ReactBootstrap from 'react-bootstrap';
 import axios from 'axios';
 import {
   Card,
@@ -87,7 +87,7 @@ const dataFetchReducer = (state, action) => {
   }
 };
 
-const Products = (props) => {
+  function Products(props){
   const [items, setItems] = React.useState(products);
   const [cart, setCart] = React.useState([]);
   const [total, setTotal] = React.useState(0);
