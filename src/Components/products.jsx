@@ -87,7 +87,7 @@ const dataFetchReducer = (state, action) => {
   }
 };
 
-  function Products(props){
+  export const Products = (props) => {
   const [items, setItems] = React.useState(products);
   const [cart, setCart] = React.useState([]);
   const [total, setTotal] = React.useState(0);
@@ -227,4 +227,3 @@ const dataFetchReducer = (state, action) => {
     </Container>
   );
 };
-export default Products;
