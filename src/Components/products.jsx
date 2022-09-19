@@ -87,7 +87,7 @@ const dataFetchReducer = (state, action) => {
   }
 };
 
-  export const Products = (props) => {
+  const Products = (props) => {
   const [items, setItems] = React.useState(products);
   const [cart, setCart] = React.useState([]);
   const [total, setTotal] = React.useState(0);
@@ -145,20 +145,30 @@ const dataFetchReducer = (state, action) => {
   let cartList = cart.map((item, index) => {
     return (
       <Card key={index}>
-        <Card.Header>
-          <Accordion.Toggle as={Button} variant="link" eventKey={1 + index}>
-            {item.name}
-          </Accordion.Toggle>
-        </Card.Header>
-        <Accordion.Collapse
-          onClick={() => deleteCartItem(index)}
-          eventKey={1 + index}
-        >
-          <Card.Body>
-            $ {item.cost} from {item.country}
-          </Card.Body>
-        </Accordion.Collapse>
-      </Card>
+      <Card.Header>
+        {item.name}
+      </Card.Header>
+      <Card.Body>
+        $ {item.cost} from {item.country}
+      </Card.Body>
+      <Button onClick={() => deleteCartItem(index)}
+        eventKey={1 + index}>Delete Item</Button>
+    </Card>
+      // <Card key={index}>
+      //   <Card.Header>
+      //     <Accordion.Toggle as={Button} variant="link" eventKey={1 + index}>
+      //       {item.name}
+      //     </Accordion.Toggle>
+      //   </Card.Header>
+      //   <Accordion.Collapse
+      //     onClick={() => deleteCartItem(index)}
+      //     eventKey={1 + index}
+      //   >
+      //     <Card.Body>
+      //       $ {item.cost} from {item.country}
+      //     </Card.Body>
+      //   </Accordion.Collapse>
+      // </Card>
     );
   });
 
@@ -227,3 +237,4 @@ const dataFetchReducer = (state, action) => {
     </Container>
   );
 };
+export default Products;
